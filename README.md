@@ -48,3 +48,13 @@
 ## 関数定義
  - 関数名 引数 = 実装
  - doubleMe x = x * 2
+ - doubleUs x y = x * 2 + y * 2
+ - 関数定義の中で他の関数も呼べる
+ - if文ではelse句が必須（常に何かを返す）
+```haskell
+doubleSmallNumber x = if x > 100
+                        then x
+                        else x*2
+```
+ - 'も関数名ににつかえる（慣習的に使われている）
+ - 関数は大文字では始められない
