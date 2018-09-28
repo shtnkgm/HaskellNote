@@ -64,3 +64,57 @@ doubleSmallNumber x = if x > 100
 ```haskell
 let numbers = [1,2,3]
 ```
+ - リストの連結
+```haskell
+[1,2,3] ++ [4,5,6]
+"hello" ++ "world"
+```
+ - 文字列は文字のリスト['o','n','e']
+ - リストの先頭に追加（cons演算子）
+ ```haskell
+ 'H':"ELLO"
+ ```
+ - [1,2]は1:2:3:[]の糖衣構文
+ - リストへのアクセス
+```haskell
+ Prelude> "HELLO" !! 1
+'E'
+```
+ - リストのネスト
+```haskell
+[[1,2,3],[2,3,4,5]]
+```
+ - 辞書順でのリストの比較 <, >, ==, <=, >=
+   - 空でないリストは空リストよりも大きい
+ - その他のリスト操作
+```haskell
+Prelude> head "HELLO" 
+'H'
+Prelude> tail "HELLO" 
+"ELLO"
+Prelude> last "HELLO" 
+'O'
+Prelude> init "HELLO" 
+"HELL"
+Prelude> length "HELLO" 
+5
+Prelude> null "HELLO" 
+False
+Prelude> null "" 
+True
+Prelude> reverse "HELLO" 
+"OLLEH"
+Prelude> take 3 "HELLO" 
+"HEL"
+Prelude> drop 3 "HELLO" 
+"LO"
+Prelude> maximum [1,4,2]
+4
+Prelude> sum [1,4,2]
+7
+Prelude> product [1,4,2]
+8
+Prelude> elem 4 [1,4,2]
+True
+```
+ 
