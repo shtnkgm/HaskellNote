@@ -143,4 +143,49 @@ Prelude> take 10 (repeat 2)
 Prelude> replicate 4 5
 [5,5,5,5]
 ```
+
+ - 内包表記（リストのフィルタリング、変換、組み合わせを行う方法）
+```haskell
+-- 20以下の整数を2倍したリスト
+Prelude> [x*2 | x <- [1..20]]
+[2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,38,40]
+```
+ - 条件（述語）を持つ内包表記
+```haskell
+Prelude> [x*2 | x <- [1..20], x*2 > 20]
+[22,24,26,28,30,32,34,36,38,40]
+
+Prelude> [x | x <- [50..100], x `mod` 7 == 3]
+[52,59,66,73,80,87,94]
+
+-- 出力をif文にする
+Prelude> [if x > 3 then "A" else "B"  | x <- [1..6], odd x]
+["B","B","A"]
+
+-- 複数の述語
+Prelude> [ x | x <- [1..10], x /= 3, x /= 4]
+[1,2,5,6,7,8,9,10]
+
+-- 複数のリスト（全ての組み合わせ）
+Prelude> [ x+y | x <- [1,2], y <- [100, 1000] ]
+[101,1001,102,1002]
+
+Prelude> [ x ++ " "  ++ y | x <- ["red", "blue", "green"], y <- ["light", "banana"] ]
+["red light","red banana","blue light","blue banana","green light","green banana"]
+
+-- リストから取り出した値を利用しない場合は_
+Prelude> let length' xs = sum [1 | _ <- xs]
+Prelude> length "HELLO"
+5
+
+-- 文字列の処理に内包表記を利用する
+Prelude> [ c | c <- "Hello", c `elem` ['A'..'Z']]
+"H"
+Prelude> [ c | c <- "Hello", c `elem` ['a'..'z']]
+"ello"
+
+-- ネストしたリストの操作はネストした内包表記を利用する
+Prelude> [ [ x | x <- xs, even x ] | xs <- [[1,2,3], [2,3,4]] ]
+[[2],[2,4]]
+```
  
